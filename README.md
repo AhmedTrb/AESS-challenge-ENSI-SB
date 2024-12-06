@@ -1,8 +1,9 @@
 # AESS-challenge-ENSI-SB : Oil Spill Detection and Monitoring
-![](/readme%20images/)
+![](./readme%20images/overview.png)
 ### **Overview** :
 This project leverages satellite SAR images from the Copernicus dataset and a SegNet deep learning model to detect oil spills, calculate their size and surface area. It also includes a web platform as a prototype for visualizing and alerting response teams about oil spill incidents.
 
+ Video Demo [Link](https://drive.google.com/file/d/1bIsbISIzW4fs9zNJIIYBK5RwGYqJsq9q/view?usp=sharing)
 
 ## Table of content :
 1. [Features](#features-)
@@ -29,6 +30,7 @@ The project consists of two main parts:
 - **Dataset**: European Space Agency (ESA) via the Copernicus Open Access Hub SAR image data.  
 - **Model**: SegNet-based deep learning architecture for semantic segmentation.  
 - **Output**: Ground truth masks for oil spills, spill size, and surface area calculations.  
+
 
 ### **2. Web Platform**  
 - **Frontend**: Built with React.js for user interaction.
@@ -61,6 +63,8 @@ The project consists of two main parts:
   Open the platform in your browser at http://localhost:3000
 
 ## **Model Details :**
+### overview :
+In this project, a **Conditional Generative Adversarial Network (CGAN)** is used for oil spill detection by generating segmentation masks from SAR images. The CGAN consists of two main components: a **generator** and a **discriminator**. The generator is a U-Net-like architecture that predicts oil spill masks from input images, while the discriminator is a PatchGAN model that evaluates whether the predicted mask is realistic by comparing it with the ground truth.
 ### Dataset : 
 The dataset is provided from this paper [[1]](#1) and consists of preprocessed raw images and Ground Truth Masks (GTM). It was collected from the Sentinel-1 mission satellite, which provides level-1 Ground Range Detected (GRD) data, equipped with a C-band Synthetic Aperture Radar (SAR) system. 
  - **Raw Images:** Contains the original SAR images.
@@ -77,6 +81,8 @@ The generator is a Convolutional Neural Network (CNN) that consists of an encode
 ### 2. Patch-GAN Discriminator :
 The discriminator evaluates whether a given pair of input image and generated mask is real or fake.
 
+### Training :
+During training, the generator learns to create accurate masks by minimizing a combination of adversarial loss (to fool the discriminator) and L1 loss (to ensure similarity to ground truth). This collaborative adversarial setup allows the CGAN to generate high-quality segmentation masks, even for complex SAR image patterns.
 
 ## Web Platform :
 ### Users :
@@ -112,3 +118,10 @@ The web platform is designed to serve multiple stakeholders by providing critica
 
 <a id="2">[2]</a> Mapping oil pollution in the Gulf of Suez in 2017–2021 using Synthetic Aperture Radar [link](https://www.sciencedirect.com/science/article/pii/S1110982323000704#s0010)
 
+[3] Mediterranean Sea region briefing - The European environment — state and outlook 2015 [link](https://www.eea.europa.eu/soer/2015/countries/mediterranean)
+
+[4] Global maritime traffic [link](https://globalmaritimetraffic.org/gmtds-data.html)
+
+[5] More than 750 oil slicks spotlight pollution risks in Mediterranean Sea [link](https://www.offshore-energy.biz/more-than-750-oil-slicks-spotlight-pollution-risks-in-mediterranean-sea/)
+
+[6] Mediterranean Sea Chronic Oil Pollution Analysis: July 2020-January 2024 [link](https://skytruth.org/wp-content/uploads/2024/04/SkyTruth_Mediterranean_Analysis_2024.pdf)
