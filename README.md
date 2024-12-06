@@ -31,6 +31,7 @@ The project consists of two main parts:
 - **Model**: SegNet-based deep learning architecture for semantic segmentation.  
 - **Output**: Ground truth masks for oil spills, spill size, and surface area calculations.  
 
+ View on [Kaggle](https://www.kaggle.com/code/ahmedtrabelsi88/ieee-aess-challenge)
 
 ### **2. Web Platform**  
 - **Frontend**: Built with React.js for user interaction.
